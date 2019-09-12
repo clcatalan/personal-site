@@ -123,12 +123,21 @@ const ContactEmail = styled.span`
     text-decoration: underline;
 `
 const LinkedInImg = styled.img`
-width: 25px;
-height: 20px;
-padding-left: 10px;
+    width: 25px;
+    height: 20px;
+    padding-left: 10px;
+
+    &:hover{
+        cursor: pointer;
+    }
 `
 
 class HomePage extends React.Component {
+
+    openNewTab =  () =>{
+        window.open('https://www.linkedin.com/in/clcatalan/', '_blank');
+    }
+
     render () {
         return (
             <Container>
@@ -147,10 +156,13 @@ class HomePage extends React.Component {
                     </DescriptionContainer>
                </Content>
                     <ContactFooter>
-                        <FooterText>Contact Me: </FooterText>
+                        <FooterText>Are you an employer? You may contact me here: </FooterText>
                         <ContactDetails>
                             <ContactEmail>crlsctalan23@gmail.com</ContactEmail>
-                            <LinkedInImg src={LinkedIn}></LinkedInImg>
+                            <LinkedInImg 
+                                onClick={this.openNewTab}
+                                src={LinkedIn}>
+                            </LinkedInImg>
                         </ContactDetails> 
                     </ContactFooter>
                 </ContentContainer>
